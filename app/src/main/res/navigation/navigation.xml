@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.plyguessit.TitleFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_title" >
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.plyguessit.GameFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_game_overFragment"
+            app:destination="@id/game_overFragment"
+            app:popUpTo="@+id/gameFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_gameFragment_to_game_wonFragment"
+            app:destination="@id/game_wonFragment"
+            app:popUpTo="@+id/gameFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/game_wonFragment"
+        android:name="com.example.plyguessit.GameWonFragment"
+        android:label="@string/android_trivia"
+        tools:layout="@layout/fragment_game_won" >
+        <action
+            android:id="@+id/action_game_wonFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/game_overFragment"
+        android:name="com.example.plyguessit.GameOverFragment"
+        android:label="fragment_game_over"
+        tools:layout="@layout/fragment_game_over" >
+        <action
+            android:id="@+id/action_game_overFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.plyguessit.AboutFragment"
+        android:label="@string/title_about_trivia"
+        tools:layout="@layout/fragment_rules"/>
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.plyguessit.RulesFragment"
+        android:label="@string/title_trivia_rules"
+        tools:layout="@layout/fragment_rules" />
+</navigation>
